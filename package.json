@@ -1,12 +1,13 @@
 {
   "name": "svg-crowbar",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A library based on a Chrome-specific bookmarklet that extracts SVG nodes and accompanying styles from an HTML document and downloads them as an SVG file",
-  "main": "svg-crowbar.js",
+  "main": "dist/main.js",
   "scripts": {
     "test": "test",
     "lint": "eslint ./src",
-    "lint-fix": "eslint --fix ./src"
+    "lint-fix": "eslint --fix ./src",
+    "build": "webpack svg-crowbar.js --mode=production"
   },
   "repository": "git+https://github.com/cy6erskunk/svg-crowbar.git",
   "keywords": [
@@ -25,6 +26,8 @@
     "eslint": "5.8.0",
     "eslint-config-prettier": "3.1.0",
     "eslint-plugin-prettier": "3.0.0",
-    "prettier": "1.15.1"
+    "prettier": "1.15.1",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
   }
 }
