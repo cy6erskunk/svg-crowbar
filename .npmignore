@@ -1,5 +1,7 @@
 assets/
 index.html
+
 .eslintignore
 .eslintrc
 .vscode/
+webpack.config.js

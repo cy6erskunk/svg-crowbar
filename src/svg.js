@@ -1,4 +1,3 @@
-import getSource from './inputProcessor'
 import {getFilename} from './util'
 import {REMOVE_TIMEOUT} from './const'
 
@@ -21,5 +20,4 @@ function download(source) {
   }, REMOVE_TIMEOUT)
 }
 
-const downloadSvg = svgElement => download(getSource(svgElement))
-export default downloadSvg
+export default download

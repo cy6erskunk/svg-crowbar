@@ -1,8 +1,7 @@
-import getSource from './inputProcessor'
 import {getFilename} from './util'
 import {REMOVE_TIMEOUT} from './const'
 
-function downloadPNG(source) {
+function downloadPng(source) {
   const filename = getFilename(source)
 
   const canvas = document.createElement('canvas')
@@ -34,5 +33,4 @@ function downloadPNG(source) {
   image.onload = onLoad
 }
 
-const downloadPng = svgElement => downloadPNG(getSource(svgElement))
 export default downloadPng
