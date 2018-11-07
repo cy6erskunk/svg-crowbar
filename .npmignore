@@ -1,2 +1,5 @@
 assets/
 index.html
+.eslintignore
+.eslintrc
+.vscode/
