@@ -1,0 +1,20 @@
+{
+  "name": "svg-crowbar",
+  "version": "0.0.1",
+  "description": "A library based on a Chrome-specific bookmarklet that extracts SVG nodes and accompanying styles from an HTML document and downloads them as an SVG file",
+  "main": "svg-crowbar.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": "git+https://github.com/cy6erskunk/svg-crowbar.git",
+  "keywords": [
+    "svg-crowbar",
+    "png-crowbar"
+  ],
+  "author": "Igor Shevchenko <cyberskunk@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cy6erskunk/svg-crowbar/issues"
+  },
+  "homepage": "https://github.com/cy6erskunk/svg-crowbar#readme"
+}
