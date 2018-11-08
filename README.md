@@ -1,5 +1,5 @@
 # SVG Crowbar Lib
-[![NPM version](https://img.shields.io/npm/v/svg-crowbar.svg)](https://www.npmjs.com/package/nsp-reporter-teamcity)
+[![NPM version](https://img.shields.io/npm/v/svg-crowbar.svg)](https://www.npmjs.com/package/svg-crowbar)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 A library based on Chrome-specific [bookmarklet](https://nytimes.github.io/svg-crowbar/)
