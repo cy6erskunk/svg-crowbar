@@ -17,7 +17,7 @@
     "png-crowbar"
   ],
   "author": "Igor Shevchenko <cyberskunk@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cy6erskunk/svg-crowbar/issues"
   },
