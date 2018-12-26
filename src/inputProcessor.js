@@ -9,6 +9,7 @@ const prefix = {
 function getEmptySvgDeclarationComputed() {
   let emptySvg = window.document.createElementNS(prefix.svg, 'svg')
   document.body.appendChild(emptySvg)
+  emptySvg.style.all = 'initial'
   const emptySvgDeclarationComputed = getComputedStyle(emptySvg)
   document.body.removeChild(emptySvg)
   emptySvg = null
