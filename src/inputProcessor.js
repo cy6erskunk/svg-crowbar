@@ -10,6 +10,7 @@ function getEmptySvgDeclarationComputed() {
   let emptySvg = window.document.createElementNS(prefix.svg, 'svg')
   document.body.appendChild(emptySvg)
   const emptySvgDeclarationComputed = getComputedStyle(emptySvg)
+  document.body.removeChild(emptySvg)
   emptySvg = null
   return emptySvgDeclarationComputed
 }
