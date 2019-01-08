@@ -1,5 +1,4 @@
-import {getFilename} from './util'
-import {REMOVE_TIMEOUT} from './const'
+import {getFilename, commenceDownload} from './util'
 
 function downloadPng(source) {
   const filename = getFilename(source)
@@ -19,18 +18,11 @@ function downloadPng(source) {
     context.drawImage(image, 0, 0)
     const canvasdata = canvas.toDataURL('image/png')
 
-    const a = document.createElement('a')
-    a.download = `${filename}.png`
-    a.href = canvasdata
-    document.body.appendChild(a)
-    a.click()
-    setTimeout(() => {
-      document.body.removeChild(a)
-    }, REMOVE_TIMEOUT)
+    commenceDownload(`${filename}.png`, canvasdata, () => document.body.removeChild(canvas))
   }
 
-  image.src = imgsrc
   image.onload = onLoad
+  image.src = imgsrc
 }
 
 export default downloadPng
