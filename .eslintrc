@@ -11,6 +11,7 @@
        "prettier"
     ],
     "rules": {
+      "no-nested-ternary": "off",
       "import/no-commonjs": "off",
       "linebreak-style": "off",
       "prettier/prettier": [

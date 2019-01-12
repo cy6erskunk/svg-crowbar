@@ -1,16 +1,18 @@
 import {REMOVE_TIMEOUT} from './const'
 
-export function getFilename(source) {
-  let filename = 'untitled'
+export const DEFAULT_FILENAME = 'untitled'
 
-  if (source.id) {
-    filename = source.id
-  } else if (source.class) {
-    filename = source.class
-  } else if (window.document.title) {
-    filename = window.document.title.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+export function getFilename(source) {
+  if (!(source instanceof SVGElement)) {
+    throw new Error('SVG Element is required')
   }
-  return filename
+
+  return (
+    source.getAttribute('id') ||
+    source.getAttribute('class') ||
+    window.document.title.replace(/[^a-z0-9]/gi, '-').toLowerCase() ||
+    DEFAULT_FILENAME
+  )
 }
 
 export function commenceDownload(filename, imgdata, callback) {
