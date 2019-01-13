@@ -13,7 +13,7 @@ It is also possible to use this library to convert an SVG to a PNG before downlo
 ```javascript
 import downloadSvg from 'svg-crowbar';
 
-downloadSvg(document.querySelector('svg'));
+downloadSvg(document.querySelector('svg'), 'my_svg');
 ```    
 or
 ```javascript
@@ -21,3 +21,7 @@ import { downloadPng } from 'svg-crowbar';
 
 downloadPng(document.querySelector('svg'));
 ```
+
+Filename is determined by element id, class or page title, when not provided explicitly.
+
+An error is thrown in case no valid SVG element was provided.

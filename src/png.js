@@ -1,8 +1,6 @@
 import {getFilename, commenceDownload} from './util'
 
-function downloadPng(source) {
-  const filename = getFilename(source)
-
+function downloadPng(source, filename) {
   const canvas = document.createElement('canvas')
   document.body.appendChild(canvas)
   canvas.setAttribute('id', 'svg-image')
@@ -18,7 +16,9 @@ function downloadPng(source) {
     context.drawImage(image, 0, 0)
     const canvasdata = canvas.toDataURL('image/png')
 
-    commenceDownload(`${filename}.png`, canvasdata, () => document.body.removeChild(canvas))
+    commenceDownload(`${filename || getFilename(source)}.png`, canvasdata, () =>
+      document.body.removeChild(canvas),
+    )
   }
 
   image.onload = onLoad
