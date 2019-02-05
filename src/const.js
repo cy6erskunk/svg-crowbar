@@ -6,3 +6,4 @@ export const prefix = {
   svg: 'http://www.w3.org/2000/svg',
 }
 export const REMOVE_TIMEOUT = 10
+export const DEFAULT_FILENAME = 'untitled'

@@ -2,6 +2,5 @@
   "root": false,
   "env": {
     "jest": true
-  },
-  "globals": {"createSVG": false}
+  }
 }

@@ -11,6 +11,9 @@ function getEmptySvgDeclarationComputed() {
 }
 
 function getSource(svg) {
+  if (!(svg instanceof SVGElement)) {
+    throw new Error('SVG element is required')
+  }
   const emptySvgDeclarationComputed = getEmptySvgDeclarationComputed()
 
   svg.setAttribute('version', '1.1')
@@ -41,7 +44,7 @@ function getSource(svg) {
     id: svg.getAttribute('id'),
     name: svg.getAttribute('name'),
     childElementCount: svg.childElementCount,
-    source: [doctype + source],
+    source: doctype + source,
   }
 
   return result

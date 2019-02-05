@@ -1,32 +1,33 @@
-import * as utils from '../src/util'
-import {prefix} from '../src/const'
+import {prefix, DEFAULT_FILENAME} from '../src/const'
+import {getFilename} from '../src/util'
 
 const createSVG = () => document.createElementNS(prefix.svg, 'svg')
 describe('getFilename', () => {
+  beforeEach(() => (window.document.title = ''))
   test('throws when receves not  an SVG', () => {
-    expect(utils.getFilename).toThrow()
+    expect(getFilename).toThrow()
   })
 
   test('uses default ', () => {
-    expect(utils.getFilename(createSVG())).toBe(utils.DEFAULT_FILENAME)
+    expect(getFilename(createSVG())).toBe(DEFAULT_FILENAME)
   })
   test('uses id', () => {
     const id = 'boom'
     const elem = createSVG()
     elem.id = id
-    expect(utils.getFilename(elem)).toEqual(id)
+    expect(getFilename(elem)).toEqual(id)
   })
 
   test('uses classname', () => {
     const classname = 'whatever'
     const elem = createSVG()
     elem.classList.add(classname)
-    expect(utils.getFilename(elem)).toEqual(classname)
+    expect(getFilename(elem)).toEqual(classname)
   })
 
   test('uses doc title', () => {
     const title = 'boom'
     document.title = title
-    expect(utils.getFilename(createSVG())).toBe(title)
+    expect(getFilename(createSVG())).toBe(title)
   })
 })
