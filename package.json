@@ -6,6 +6,7 @@
   "browser": "./dist/main.js",
   "scripts": {
     "test": "jest",
+    "test-ci": "jest --runInBand",
     "lint": "eslint ./src",
     "lint-fix": "eslint --fix ./src",
     "build": "webpack src/index.js --mode=production",
