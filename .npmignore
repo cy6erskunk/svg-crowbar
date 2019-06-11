@@ -1,7 +1,13 @@
 assets/
 index.html
+src/
+test/
 
 .eslintignore
 .eslintrc
 .vscode/
 webpack.config.js
+jest.config.js
+.DS_Store
+.node-version
+.travis.yml
