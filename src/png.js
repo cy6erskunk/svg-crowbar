@@ -10,7 +10,7 @@ function downloadPng(source, filename = DEFAULT_FILENAME) {
   canvas.style.display = 'none'
 
   const context = canvas.getContext('2d')
-  const imgsrc = `data:image/svg+xml;base64,${btoa(source.source)}`
+  const imgsrc = `data:image/svg+xml;base64,${btoa(source.source.replace(/[\u00A0-\u2666]/g, c => '&#' + c.charCodeAt(0) + ';'))}`
   const image = new Image()
 
   function onLoad() {
