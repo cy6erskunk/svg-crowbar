@@ -38,7 +38,7 @@
     "jest": "24.8.0",
     "prettier": "1.18.2",
     "webpack": "4.35.3",
-    "webpack-cli": "3.3.5"
+    "webpack-cli": "3.3.6"
   },
   "babel": {
     "presets": [
