@@ -5,8 +5,6 @@
   "packageRules": [{
     "depTypeList": ["devDependencies"],
     "automerge": true,
-    "major": {
-      "automerge": false
-    }
+    "updateTypes": ["patch", "minor"]
   }]
 }
