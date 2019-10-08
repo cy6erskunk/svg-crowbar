@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/cy6erskunk/svg-crowbar#readme",
   "devDependencies": {
-    "@babel/core": "7.6.2",
-    "@babel/preset-env": "7.6.2",
+    "@babel/core": "7.6.3",
+    "@babel/preset-env": "7.6.3",
     "@cyberskunk/eslint-config": "1.0.0",
     "@jest-runner/electron": "2.0.2",
     "babel-core": "7.0.0-bridge.0",
