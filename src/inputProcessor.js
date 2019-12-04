@@ -10,11 +10,10 @@ function getEmptySvgDeclarationComputed() {
   return emptySvgDeclarationComputed
 }
 
-function getSource(svg) {
+function getSource(svg, css = 'inline') {
   if (!(svg instanceof SVGElement)) {
     throw new Error('SVG element is required')
   }
-  const emptySvgDeclarationComputed = getEmptySvgDeclarationComputed()
 
   svg.setAttribute('version', '1.1')
   // removing attributes so they aren't doubled up
@@ -30,7 +29,11 @@ function getSource(svg) {
     svg.setAttributeNS(prefix.xmlns, 'xmlns:xlink', prefix.xlink)
   }
 
-  setInlineStyles(svg, emptySvgDeclarationComputed)
+  if (css === 'inline') {
+    setInlineStyles(svg, getEmptySvgDeclarationComputed())
+  } else if (css === 'external') {
+    setExternalStyles(svg)
+  }
 
   const source = new XMLSerializer().serializeToString(svg)
   const rect = svg.getBoundingClientRect()
@@ -89,6 +92,14 @@ function setInlineStyles(svg, emptySvgDeclarationComputed) {
   while (i--) {
     explicitlySetStyle(allElements[i])
   }
+}
+
+function setExternalStyles(svg) {
+  const style = document.createElement('style')
+  style.innerHTML = [...document.styleSheets]
+    .map(styleSheet => [...styleSheet.cssRules].map(rule => rule.cssText).join(' '))
+    .join(' ')
+  svg.prepend(style)
 }
 
 export default getSource
