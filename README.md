@@ -14,7 +14,7 @@ It is also possible to use this library to convert an SVG to a PNG before downlo
 ```javascript
 import downloadSvg from 'svg-crowbar';
 
-downloadSvg(document.querySelector('svg'), 'my_svg', 'external');
+downloadSvg(document.querySelector('svg'), 'my_svg', 'internal');
 ```    
 or
 ```javascript
@@ -25,6 +25,6 @@ downloadPng(document.querySelector('svg'));
 
 Filename is determined by element id, class or page title, when not provided explicitly.
 
-The optional third argument (which defaults to `'inline'`) can be set to `'external'` if you wish to use a block of styles from `document.styleSheets`, instead of adding inline styles from `getComputedStyle` on every element in the SVG. If you'd prefer that no CSS be added, then set the value to `false`.
+The optional third argument (which defaults to `'inline'`) can be set to `'internal'` if you wish to use a block of styles from `document.styleSheets`, instead of adding inline styles from `getComputedStyle` on every element in the SVG. If you'd prefer that no CSS be added, then set the value to `false`.
 
 An error is thrown in case no valid SVG element was provided.

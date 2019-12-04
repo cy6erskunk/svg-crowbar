@@ -31,8 +31,8 @@ function getSource(svg, css = 'inline') {
 
   if (css === 'inline') {
     setInlineStyles(svg, getEmptySvgDeclarationComputed())
-  } else if (css === 'external') {
-    setExternalStyles(svg)
+  } else if (css === 'internal') {
+    setInternalStyles(svg)
   }
 
   const source = new XMLSerializer().serializeToString(svg)
@@ -94,7 +94,7 @@ function setInlineStyles(svg, emptySvgDeclarationComputed) {
   }
 }
 
-function setExternalStyles(svg) {
+function setInternalStyles(svg) {
   const style = document.createElement('style')
   style.innerHTML = [...document.styleSheets]
     .map(styleSheet => [...styleSheet.cssRules].map(rule => rule.cssText).join(' '))
