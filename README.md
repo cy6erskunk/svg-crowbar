@@ -23,42 +23,52 @@ import { downloadPng } from 'svg-crowbar';
 downloadPng(document.querySelector('svg'), 'my_svg', { css: 'internal' });
 ```
 
-### Function arguments
-
-The `downloadSVG`/`downloadPNG` functions both have three arguments:
+The `downloadSVG`/`downloadPNG` functions each have three arguments:
 
 ```javascript
 downloadSVG([svgElement], [filename], [options])
 downloadPNG([svgElement], [filename], [options])
 ```
 
-#### svgElement (required)
+- **svgElement** *(required)*
+  
+  A DOM element selector for an SVG, e.g. `document.querySelector('svg')`. An error is thrown if no valid SVG element was provided.
 
-A DOM element selector for an SVG, e.g. `document.querySelector('svg')`. An error is thrown if no valid SVG element was provided.
+- **filename** *(optional)*
 
-#### filename (optional)
+  A string to set the filename. This is determined by element id, class or page title, when not provided explicitly.
 
-A string to set the filename. This is determined by element id, class or page title, when not provided explicitly.
+- **options** *(optional)*
 
-#### options (optional)
+  An object literal. It presently has just a single configurable property:
 
-An object literal. It presently has just a single configurable property:
+- **options.css** *(optional)*
 
-#### options.css (optional)
+  This setting determines how the SVG will be styled:
 
-This setting determines how the SVG will be styled:
+  - **`'inline'`**
 
-- `'inline'`: Default value. Adds inline styles from `getComputedStyle` on every element in the SVG.
-- `'internal'`: Add an internal block of styles containing style rules from `document.styleSheets` instead.
-- `false`: Don't add any CSS.
+    Default value. Inlines all computed styles on every element in the SVG. This setting best ensures that the exported SVG is accurate cross-browser.
 
-Example:
-```javascript
-// Add inline styles on SVG elements:
-downloadSvg(document.querySelector('svg'), 'my_svg'); 
-downloadSvg(document.querySelector('svg'), 'my_svg', { css: 'inline' });
-// Add a <style> block in the SVG:
-downloadSvg(document.querySelector('svg'), 'my_svg', { css: 'internal' });
-// Do not add CSS:
-downloadSvg(document.querySelector('svg'), 'my_svg', { css: false });
-```
+  - **`'internal'`**
+
+    Adds an internal block of styles containing only explicitly declared style rules (from `document.styleSheets`). This can drastically reduce file-sizes and build time in exported SVGs, but could be less accurate if the styles are not consistent cross-browser, as it does not include styles from the browser's user agent stylesheet.
+
+  - **`false`**
+
+    Doesn't add any CSS. This gives the smallest file-size, but you might need to manually add your own styles to exported SVGs to ensure an accurate output. You can do this by injecting a `<style>` block into the selected SVG before exporting.
+
+  Example:
+  ```javascript
+  const svg = document.querySelector('svg');
+
+  // Add inline styles on SVG elements:
+  downloadSvg(svg, 'my_svg'); 
+  downloadSvg(svg, 'my_svg', { css: 'inline' });
+
+  // Add a <style> block in the SVG:
+  downloadSvg(svg, 'my_svg', { css: 'internal' });
+
+  // Do not add CSS:
+  downloadSvg(svg, 'my_svg', { css: false });
+  ```
