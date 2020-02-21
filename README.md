@@ -26,8 +26,8 @@ downloadPng(document.querySelector('svg'), 'my_svg', { css: 'internal' });
 The `downloadSVG`/`downloadPNG` functions each have three arguments:
 
 ```javascript
-downloadSVG([svgElement], [filename], [options])
-downloadPNG([svgElement], [filename], [options])
+downloadSVG(svgElement, [filename], [options])
+downloadPNG(svgElement, [filename], [options])
 ```
 
 - **svgElement** *(required)*
