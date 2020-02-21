@@ -10,7 +10,7 @@ function getEmptySvgDeclarationComputed() {
   return emptySvgDeclarationComputed
 }
 
-function getSource(svg, options = {}) {
+function getSource(svg, {css = 'inline'}) {
   if (!(svg instanceof SVGElement)) {
     throw new Error('SVG element is required')
   }
@@ -29,9 +29,9 @@ function getSource(svg, options = {}) {
     svg.setAttributeNS(prefix.xmlns, 'xmlns:xlink', prefix.xlink)
   }
 
-  if (!options.hasOwnProperty('css') || options.css === 'inline') {
+  if (css === 'inline') {
     setInlineStyles(svg, getEmptySvgDeclarationComputed())
-  } else if (options.css === 'internal') {
+  } else if (css === 'internal') {
     setInternalStyles(svg)
   }
 
