@@ -54,7 +54,7 @@ downloadPNG(svgElement, [filename], [options])
 
     Adds an internal block of styles containing only explicitly declared style rules (from `document.styleSheets`). This can drastically reduce file-sizes and build time in exported SVGs, but could be less accurate if the styles are not consistent cross-browser, as it does not include styles from the browser's user agent stylesheet.
 
-  - **`false`**
+  - **`'none'`**
 
     Doesn't add any CSS. This gives the smallest file-size, but you might need to manually add your own styles to exported SVGs to ensure an accurate output. You can do this by injecting a `<style>` block into the selected SVG before exporting.
 
@@ -70,5 +70,5 @@ downloadPNG(svgElement, [filename], [options])
   downloadSvg(svg, 'my_svg', { css: 'internal' });
 
   // Do not add CSS:
-  downloadSvg(svg, 'my_svg', { css: false });
+  downloadSvg(svg, 'my_svg', { css: 'none' });
   ```
