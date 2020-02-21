@@ -10,7 +10,7 @@ function getEmptySvgDeclarationComputed() {
   return emptySvgDeclarationComputed
 }
 
-function getSource(svg, {css = 'inline'}) {
+function getSource(svg, {css = 'inline'} = {}) {
   if (!(svg instanceof SVGElement)) {
     throw new Error('SVG element is required')
   }
