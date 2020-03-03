@@ -10,7 +10,8 @@
     "lint": "eslint ./src",
     "lint-fix": "eslint --fix ./src",
     "build": "webpack src/index.js --mode=production",
-    "build-dev": "webpack src/index.js --mode=development"
+    "build-dev": "webpack src/index.js --mode=development",
+    "prepublishOnly": "npm test && npm run build"
   },
   "repository": "git+https://github.com/cy6erskunk/svg-crowbar.git",
   "keywords": [
