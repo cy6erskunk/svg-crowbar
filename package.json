@@ -2,14 +2,20 @@
   "name": "svg-crowbar",
   "version": "0.3.1",
   "description": "A library based on a Chrome-specific bookmarklet that extracts SVG nodes and accompanying styles from an HTML document and downloads them as an SVG file",
-  "main": "./dist/main.js",
+  "main": "./dist/index.js",
   "browser": "./dist/main.js",
+  "module": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "jest",
     "test-ci": "jest --runInBand",
     "lint": "eslint ./src",
     "lint-fix": "eslint --fix ./src",
-    "build": "webpack src/index.js --mode=production",
+    "build": "rm -r dist && npm run build-prod && npm run build-transpile",
+    "build-prod": "webpack src/index.js --mode=production",
+    "build-transpile": "babel src --out-dir dist --copy-files",
     "build-dev": "webpack src/index.js --mode=development",
     "prepublishOnly": "npm test && npm run build"
   },
@@ -25,6 +31,7 @@
   },
   "homepage": "https://github.com/cy6erskunk/svg-crowbar#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "7.8.7",
     "@babel/preset-env": "7.8.7",
     "@cyberskunk/eslint-config": "1.0.0",
