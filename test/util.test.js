@@ -3,7 +3,7 @@ import {getFilename} from '../src/util'
 
 const createSVG = () => document.createElementNS(prefix.svg, 'svg')
 describe('getFilename', () => {
-  beforeEach(() => (window.document.title = ''))
+  beforeEach(() => (document.title = ''))
   test('throws when receves not  an SVG', () => {
     expect(getFilename).toThrow()
   })

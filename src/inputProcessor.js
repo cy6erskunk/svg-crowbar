@@ -1,7 +1,7 @@
 import {doctype, prefix} from './const'
 
 function getEmptySvgDeclarationComputed() {
-  let emptySvg = window.document.createElementNS(prefix.svg, 'svg')
+  let emptySvg = document.createElementNS(prefix.svg, 'svg')
   document.body.appendChild(emptySvg)
   emptySvg.style.all = 'initial'
   const emptySvgDeclarationComputed = getComputedStyle(emptySvg)
