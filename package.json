@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "test-ci": "jest --runInBand",
-    "lint": "eslint ./src",
+    "lint": "eslint ./src ./test",
     "lint-fix": "eslint --fix ./src",
     "build": "webpack src/index.js --mode=production",
     "build-dev": "webpack src/index.js --mode=development",
