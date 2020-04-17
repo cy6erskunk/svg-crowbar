@@ -7,8 +7,8 @@
       "@cyberskunk/eslint-config/es6",
       "prettier"
     ],
-    "plugins": [
-       "prettier"
+    "plugins": [ 
+      "prettier"
     ],
     "rules": {
       "no-nested-ternary": "off",
@@ -32,5 +32,20 @@
           "peerDependencies": false
         }
       ]
-    }
+    },
+    "overrides": [
+      {
+        "files": "src/__mocks__/*.js",
+        "env": {
+          "jest": true
+        }
+      },
+      {
+        "files": "test/*.test.js",
+        "env": {
+          "jest": true
+        },
+        "globals": {"createSVG": false}
+      }
+    ]
   }
