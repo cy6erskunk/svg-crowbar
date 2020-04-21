@@ -8,7 +8,7 @@ export function getFilename(source) {
   return (
     source.getAttribute('id') ||
     source.getAttribute('class') ||
-    window.document.title.replace(/[^a-z0-9]/gi, '-').toLowerCase() ||
+    document.title.replace(/[^a-z0-9]/gi, '-').toLowerCase() ||
     DEFAULT_FILENAME
   )
 }
