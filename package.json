@@ -15,7 +15,7 @@
     "clean": "rm -fr dist",
     "build": "npm run clean && npm run build-prod && npm run build-transpile",
     "build-prod": "webpack src/index.js --mode=production",
-    "build-transpile": "babel src --out-dir dist --copy-files",
+    "build-transpile": "babel src/* --out-dir dist --copy-files",
     "build-dev": "webpack src/index.js --mode=development",
     "prepublishOnly": "npm test && npm run build"
   },
