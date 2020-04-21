@@ -8,8 +8,8 @@
     "dist"
   ],
   "scripts": {
-    "test": "jest",
-    "test-ci": "jest --runInBand",
+    "test": "BABEL_ENV=commonjs jest",
+    "test-ci": "BABEL_ENV=commonjs jest --runInBand",
     "lint": "eslint ./src ./test",
     "lint-fix": "eslint --fix ./src",
     "clean": "rm -fr dist",
