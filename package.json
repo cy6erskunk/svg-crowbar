@@ -2,15 +2,22 @@
   "name": "svg-crowbar",
   "version": "0.4.0",
   "description": "A library based on a Chrome-specific bookmarklet that extracts SVG nodes and accompanying styles from an HTML document and downloads them as an SVG file",
-  "main": "./dist/main.js",
-  "browser": "./dist/main.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "jest",
-    "test-ci": "jest --runInBand",
+    "test": "BABEL_ENV=commonjs jest",
+    "test-ci": "BABEL_ENV=commonjs jest --runInBand",
     "lint": "eslint ./src ./test",
     "lint-fix": "eslint --fix ./src",
-    "build": "webpack src/index.js --mode=production",
-    "build-dev": "webpack src/index.js --mode=development",
+    "clean": "rm -fr dist",
+    "build": "npm run clean && npm run build-umd && npm run build-cjs && npm run build-esm",
+    "build-umd": "webpack src/index.js --mode=production",
+    "build-umd-dev": "webpack src/index.js --mode=development",
+    "build-cjs": "BABEL_ENV=commonjs babel src/* --out-dir dist/cjs --copy-files",
+    "build-esm": "BABEL_ENV=esmodules babel src/* --out-dir dist/esm --copy-files",
     "prepublishOnly": "npm test && npm run build"
   },
   "repository": "git+https://github.com/cy6erskunk/svg-crowbar.git",
@@ -25,6 +32,7 @@
   },
   "homepage": "https://github.com/cy6erskunk/svg-crowbar#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "7.9.0",
     "@babel/preset-env": "7.9.5",
     "@cyberskunk/eslint-config": "1.0.0",
@@ -40,14 +48,6 @@
     "prettier": "1.19.1",
     "webpack": "4.43.0",
     "webpack-cli": "3.3.11"
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {}
-      ]
-    ]
   },
   "jest": {
     "setupFiles": [
