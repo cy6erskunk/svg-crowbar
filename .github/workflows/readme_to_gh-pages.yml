@@ -7,7 +7,7 @@ name: Copy README to gh-pages branch
 on:
   push:
     branches: [master]
-    paths: ["README.md"]
+    # paths: ["README.md"]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,10 +22,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: "gh-pages"
-        run: git fetch --depth=1 origin master
 
       - name: copy README to gh-pages branch
         run: |
+          git fetch --depth=1 origin master
           git checkout origin/master README.md
           git commit README.md -m 'Copy readme file from master branch'
           git push origin gh-pages
