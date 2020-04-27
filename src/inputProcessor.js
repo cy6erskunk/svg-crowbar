@@ -97,9 +97,9 @@ function setInlineStyles(svg, emptySvgDeclarationComputed) {
 function setInternalStyles(svg) {
   const style = document.createElement('style')
   style.innerHTML = Array.from(document.styleSheets)
-    .map(styleSheet =>
+    .map((styleSheet) =>
       Array.from(styleSheet.cssRules)
-        .map(rule => rule.cssText)
+        .map((rule) => rule.cssText)
         .join(' '),
     )
     .join(' ')
