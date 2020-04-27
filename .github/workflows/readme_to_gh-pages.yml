@@ -6,8 +6,8 @@ name: Copy README to gh-pages branch
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
-    paths: [ "README.md" ]
+    branches: [master]
+    paths: ["README.md"]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -18,13 +18,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-      with:
-        ref: "gh-pages"
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          ref: "gh-pages"
+        run: git fetch --depth=1 origin master
 
-    - name: copy README to gh-pages branch
-      run: |
-        git checkout origin/master README.md
-        git commit README.md -m 'Copy readme file from master branch'
-        git push origin gh-pages
+      - name: copy README to gh-pages branch
+        run: |
+          git checkout origin/master README.md
+          git commit README.md -m 'Copy readme file from master branch'
+          git push origin gh-pages
