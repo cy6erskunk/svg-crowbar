@@ -30,6 +30,8 @@ downloadSVG(svgElement, [filename], [options])
 downloadPNG(svgElement, [filename], [options])
 ```
 
+### Options
+
 - **svgElement** *(required)*
   
   A DOM element selector for an SVG, e.g. `document.querySelector('svg')`. An error is thrown if no valid SVG element was provided.
