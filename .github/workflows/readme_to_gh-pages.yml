@@ -27,5 +27,7 @@ jobs:
         run: |
           git fetch --depth=1 origin master
           git checkout origin/master README.md
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git commit README.md -m 'Copy readme file from master branch'
           git push origin gh-pages
