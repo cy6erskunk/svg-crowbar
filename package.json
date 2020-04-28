@@ -30,7 +30,7 @@
   "bugs": {
     "url": "https://github.com/cy6erskunk/svg-crowbar/issues"
   },
-  "homepage": "https://github.com/cy6erskunk/svg-crowbar#readme",
+  "homepage": "https://svg-crowbar.js.org/",
   "devDependencies": {
     "@babel/cli": "7.8.4",
     "@babel/core": "7.9.0",
