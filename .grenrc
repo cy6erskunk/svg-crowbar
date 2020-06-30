@@ -1,0 +1,9 @@
+{
+    "dataSource": "prs",
+    "prefix": "",
+    "onlyMilestones": false,
+    "groupBy": false,
+    "template": {
+      "issue": "- [{{text}}]({{url}}) {{name}}"
+    }
+}
