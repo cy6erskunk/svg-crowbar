@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.6.0 (30/06/2020)
+## v0.6.0 (20/05/2020)
 - [#153](https://github.com/cy6erskunk/svg-crowbar/pull/153) feat(png): saved image uses device pixel ratio
 <details>
 <summary>Updated dependencies</summary>
@@ -20,7 +20,7 @@
 </details>
 ---
 
-## v0.5.0 (30/06/2020)
+## v0.5.0 (23/04/2020)
 - [#119](https://github.com/cy6erskunk/svg-crowbar/pull/119) Use transpiled but unbundled modules in published package
 <details>
 <summary>Updated dependencies</summary>
@@ -47,7 +47,7 @@
 </details>
 ---
 
-## v0.4.0 (30/06/2020)
+## v0.4.0 (23/03/2020)
 - [#118](https://github.com/cy6erskunk/svg-crowbar/pull/118) Remove references to global window object to fix SSR builds
 <details>
 <summary>Updated dependencies</summary>
@@ -59,7 +59,7 @@
 
 ---
 
-## v0.3.1 (30/06/2020)
+## v0.3.1 (06/03/2020)
 - [#114](https://github.com/cy6erskunk/svg-crowbar/pull/114) Add test & build task to prepublishOnly script
 - [#116](https://github.com/cy6erskunk/svg-crowbar/pull/116) Update dependency electron to v8.1.0
 - [#115](https://github.com/cy6erskunk/svg-crowbar/pull/115) Update babel monorepo to v7.8.7
@@ -71,7 +71,7 @@
 
 ---
 
-## v0.3.0 (30/06/2020)
+## v0.3.0 (21/02/2020)
 - [#87](https://github.com/cy6erskunk/svg-crowbar/pull/87) Add 3rd CSS argument to allow inline/internal/none
 <details>
 <summary>Update dependencies:</summary>
@@ -125,7 +125,7 @@
 </details>
 ---
 
-## v0.2.4 (30/06/2020)
+## v0.2.4 (07/10/2019)
 <details>
   <summary>Update dependencies:</summary>
 
@@ -173,12 +173,12 @@
 </details>
 ---
 
-## v0.2.3 (30/06/2020)
+## v0.2.3 (24/06/2019)
 Actually do the release as v0.2.2 is identical to v0.2.1 🤦 
 
 ---
 
-## v0.2.2 (30/06/2020)
+## v0.2.2 (24/06/2019)
 - [#2](https://github.com/cy6erskunk/svg-crowbar/pull/2) Replace non-latin characters with hex codes before encoding
 <details>
 <summary>Update dependencies:</summary>
@@ -191,14 +191,14 @@ Actually do the release as v0.2.2 is identical to v0.2.1 🤦
 </details>
 ---
 
-## v0.2.1 (30/06/2020)
+## v0.2.1 (07/02/2019)
 - fix(svg|png): generate files when filenames were not provided (1d23727)
 
 ---
 
-## v0.2.0 (30/06/2020)
+## v0.2.0 (13/01/2019)
 - feat: allow specify filename explicitly (7cc89e6)
 ---
 
-## v0.1.0 (30/06/2020)
+## v0.1.0 (26/12/2018)
 *No changelog for this release.*
