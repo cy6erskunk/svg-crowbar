@@ -75,3 +75,12 @@ downloadPNG(svgElement, [filename], [options])
   // Do not add CSS:
   downloadSvg(svg, 'my_svg', { css: 'none' });
   ```
+
+  ### UMD bundle
+
+Thanks to @richardwestenra there's UMD bundle available in the package: 
+simply add 
+```html
+<script src="node_modules/svg-crowbar/dist/main.js"></script>
+```
+to get `downloadSvg` and `downloadPng` global function.
