@@ -98,13 +98,13 @@ function setInternalStyles(svg) {
   const style = document.createElement('style')
   style.innerHTML = Array.from(document.styleSheets)
     .filter(
-      styleSheet =>
+      (styleSheet) =>
         // Prevent CORS errors
         !styleSheet.href || styleSheet.href.startsWith(document.location.origin),
     )
-    .map(styleSheet =>
+    .map((styleSheet) =>
       Array.from(styleSheet.cssRules)
-        .map(rule => rule.cssText)
+        .map((rule) => rule.cssText)
         .join(' '),
     )
     .join(' ')
