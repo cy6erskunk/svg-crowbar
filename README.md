@@ -55,7 +55,7 @@ downloadPNG(svgElement, [filename], [options])
 
   - **`'internal'`**
 
-    Adds an internal block of styles containing only explicitly declared style rules (from `document.styleSheets`). This can drastically reduce file-sizes and build time in exported SVGs, but could be less accurate if the styles are not consistent cross-browser, as it does not include styles from the browser's user agent stylesheet.
+    Adds an internal block of styles containing only explicitly declared style rules (from `document.styleSheets`). This can drastically reduce file-sizes and build time in exported SVGs, but could be less accurate as it does not include styles from the browser's user agent stylesheet, or from cross-origin stylesheets (e.g. external webfonts).
 
   - **`'none'`**
 
