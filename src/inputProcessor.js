@@ -97,6 +97,11 @@ function setInlineStyles(svg, emptySvgDeclarationComputed) {
 function setInternalStyles(svg) {
   const style = document.createElement('style')
   style.innerHTML = Array.from(document.styleSheets)
+    .filter(
+      (styleSheet) =>
+        // Prevent CORS errors
+        !styleSheet.href || styleSheet.href.startsWith(document.location.origin),
+    )
     .map((styleSheet) =>
       Array.from(styleSheet.cssRules)
         .map((rule) => rule.cssText)
