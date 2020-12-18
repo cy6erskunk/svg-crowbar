@@ -1,6 +1,6 @@
 {
   "name": "svg-crowbar",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "A library based on a Chrome-specific bookmarklet that extracts SVG nodes and accompanying styles from an HTML document and downloads them as an SVG file",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
