@@ -9,14 +9,20 @@ function toBinary(string) {
   return String.fromCharCode(...new Uint8Array(codeUnits.buffer))
 }
 
-function downloadPng(source, filename = DEFAULT_FILENAME) {
+const DEFAULT_OPTIONS = {
+  debug: false,
+}
+
+function downloadPng(source, filename = DEFAULT_FILENAME, {debug} = DEFAULT_OPTIONS) {
   const canvas = document.createElement('canvas')
   const dpr = window.devicePixelRatio || 1
   document.body.appendChild(canvas)
   canvas.setAttribute('id', 'svg-image')
   canvas.setAttribute('width', source.width * dpr)
   canvas.setAttribute('height', source.height * dpr)
-  canvas.style.display = 'none'
+  if (!debug) {
+    canvas.style.display = 'none'
+  }
 
   const context = canvas.getContext('2d')
   const safeSource = source.source.replace(/[\u00A0-\u2666]/g, (c) => `&#${c.charCodeAt(0)};`)
@@ -25,10 +31,12 @@ function downloadPng(source, filename = DEFAULT_FILENAME) {
 
   function onLoad() {
     context.scale(dpr, dpr)
-    context.drawImage(image, 0, 0)
+    context.drawImage(image, 0, 0, source.width * dpr, source.height * dpr)
     const canvasdata = canvas.toDataURL('image/png')
 
-    commenceDownload(`${filename}.png`, canvasdata, () => document.body.removeChild(canvas))
+    if (!debug) {
+      commenceDownload(`${filename}.png`, canvasdata, () => document.body.removeChild(canvas))
+    }
   }
 
   image.onload = onLoad
