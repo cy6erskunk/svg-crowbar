@@ -12,7 +12,7 @@
     "test-ci": "BABEL_ENV=commonjs jest --runInBand --forceExit",
     "lint": "eslint ./src ./test",
     "lint-fix": "eslint --fix ./src",
-    "clean": "rm -fr dist",
+    "clean": "rm -fr dist manual-tests/main.js",
     "build": "npm run clean && npm run build-umd && npm run build-cjs && npm run build-esm",
     "build-umd": "webpack ./src/index.js --mode=production",
     "build-umd-dev": "webpack ./src/index.js --mode=development",
