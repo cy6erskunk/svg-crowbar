@@ -20,7 +20,6 @@ function downloadPng(source, filename = DEFAULT_FILENAME, {debug} = DEFAULT_OPTI
   canvas.setAttribute('id', 'svg-image')
   canvas.setAttribute('width', source.width * dpr)
   canvas.setAttribute('height', source.height * dpr)
-  console.log('debug', debug)
   if (!debug) {
     canvas.style.display = 'none'
   }
