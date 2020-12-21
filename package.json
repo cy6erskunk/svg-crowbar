@@ -18,7 +18,8 @@
     "build-umd-dev": "webpack ./src/index.js --mode=development",
     "build-cjs": "BABEL_ENV=commonjs babel src/* --out-dir dist/cjs --copy-files",
     "build-esm": "BABEL_ENV=esmodules babel src/* --out-dir dist/esm --copy-files",
-    "prepublishOnly": "npm run test-ci && npm run build"
+    "prepublishOnly": "npm run test-ci && npm run build",
+    "build-mtests": "npm run build-umd && cp ./dist/main.js ./manula-tests"
   },
   "repository": "git+https://github.com/cy6erskunk/svg-crowbar.git",
   "keywords": [
