@@ -12,13 +12,14 @@
     "test-ci": "BABEL_ENV=commonjs jest --runInBand --forceExit",
     "lint": "eslint ./src ./test",
     "lint-fix": "eslint --fix ./src",
-    "clean": "rm -fr dist",
+    "clean": "rm -fr dist manual-tests/main.js",
     "build": "npm run clean && npm run build-umd && npm run build-cjs && npm run build-esm",
     "build-umd": "webpack ./src/index.js --mode=production",
     "build-umd-dev": "webpack ./src/index.js --mode=development",
     "build-cjs": "BABEL_ENV=commonjs babel src/* --out-dir dist/cjs --copy-files",
     "build-esm": "BABEL_ENV=esmodules babel src/* --out-dir dist/esm --copy-files",
-    "prepublishOnly": "npm run test-ci && npm run build"
+    "prepublishOnly": "npm run test-ci && npm run build",
+    "prepare-mtests": "npm run build-umd && cp ./dist/main.js ./manual-tests"
   },
   "repository": "git+https://github.com/cy6erskunk/svg-crowbar.git",
   "keywords": [
