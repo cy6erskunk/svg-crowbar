@@ -28,7 +28,7 @@
 </head>
 <body>
   <div class="wrapper">
-    <svg width="500" height="500" viewBox="0 0 500 500">
+    <svg width="500" height="500" viewBox="0 0 500 500" class="first-svg">
       <rect width="500" height="500" fill="#c1a5a9"></rect>
       <g transform="translate(250, 250)">
         <circle fill="#f08cae" r="240"></circle>
@@ -38,11 +38,11 @@
       </g>
     </svg>
   </div>
-  <button>
+  <button class="first-button">
     save PNG
   </button>
   <div class="wrapper wrapper-large">
-    <svg width="500" height="500" viewBox="0 0 500 500">
+    <svg width="500" height="500" viewBox="0 0 500 500" class="second-svg">
       <rect width="500" height="500" fill="#c1a5a9"></rect>
       <g transform="translate(250, 250)">
         <circle fill="#f08cae" r="240"></circle>
@@ -52,11 +52,11 @@
       </g>
     </svg>
   </div>
-  <button>
+  <button class="second-button">
     save PNG
   </button>
   <div class="wrapper wrapper-tall">
-    <svg width="500" height="500" viewBox="0 0 500 500">
+    <svg width="500" height="500" viewBox="0 0 500 500" class="third-svg">
       <rect width="500" height="500" fill="#c1a5a9"></rect>
       <g transform="translate(250, 250)">
         <circle fill="#f08cae" r="240"></circle>
@@ -66,32 +66,19 @@
       </g>
     </svg>
   </div>
-  <button>
+  <button class="third-button">
     save PNG
   </button>
   <script src="main.js"></script>
   <script>
-    function savePNG1() {
-  downloadPng(document.querySelector("#test1 svg"), "my_svg", {
-    css: "internal"
-  });
-}
+    function savePNG(ordinalNumber) {
+      downloadPng(document.querySelector(`.${ordinalNumber}-svg`), "my_svg", {
+        css: "internal"
+      });
+    }
 
-function savePNG2() {
-  downloadPng(document.querySelector("#test2 svg"), "my_svg", {
-    css: "internal"
-  });
-}
-
-function savePNG3() {
-  downloadPng(document.querySelector("#test3 svg"), "my_svg", {
-    css: "internal"
-  });
-}
-
-document.querySelector("#test1 button").addEventListener("click", savePNG1);
-document.querySelector("#test2 button").addEventListener("click", savePNG2);
-document.querySelector("#test3 button").addEventListener("click", savePNG3);
+    ['first', 'second', 'third'].forEach(elem => 
+      document.querySelector(`.${elem}-button`).addEventListener("click", () => savePNG(elem)))
 
   </script>
 </body>
