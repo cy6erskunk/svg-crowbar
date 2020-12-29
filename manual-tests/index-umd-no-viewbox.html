@@ -34,7 +34,9 @@
       font-family: Helvetica;
     }
 
-
+    .controls-wrapper {
+      display: flex;
+    }
   </style>
 </head>
 
@@ -49,13 +51,24 @@
       <text class="selector" x="250" y="240">An HTML dependency, this text should be seagreen.</text>
     </svg>
   </div>
-  <div class="buttons">
-    <button class="sample-svg-svg">SVG</button>
-    <button class="sample-svg-png">PNG</button>
+  <div class="controls-wrapper">
+    <div class="buttons">
+      <button class="sample-svg-svg">SVG</button>
+      <button class="sample-svg-png">PNG</button>
+    </div>
+    <div class="debug-switch-wrapper">
+      <label for="debug-switch"><input type="checkbox" id="debug-switch"/>Debug</label>
+    </div>
   </div>
   <script src="main.js"></script>
   <script>
     document.querySelector('.sample-svg-svg').addEventListener('click', () => downloadSvg(document.querySelector('.sample-svg')))
-    document.querySelector('.sample-svg-png').addEventListener('click', () => downloadPng(document.querySelector('.sample-svg')))
+    document.querySelector('.sample-svg-png').addEventListener('click', () => 
+      downloadPng(
+        document.querySelector('.sample-svg'),
+        undefined,
+        {downloadPNGOptions: {debug: document.querySelector("#debug-switch").checked}}
+      )
+    )
   </script>
 </body>

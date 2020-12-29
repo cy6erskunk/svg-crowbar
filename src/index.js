@@ -7,5 +7,9 @@ const downloadSvg = (svgElement, filename, options) =>
   download(getSource(svgElement, options), filename || getFilename(svgElement))
 export default downloadSvg
 const downloadPng = (svgElement, filename, options) =>
-  downloadPNG(getSource(svgElement, options), filename || getFilename(svgElement))
+  downloadPNG(
+    getSource(svgElement, options),
+    filename || getFilename(svgElement),
+    options?.downloadPNGOptions,
+  )
 export {downloadSvg, downloadPng}
