@@ -14,14 +14,18 @@ const DEFAULT_OPTIONS = {
   fixSource: _fixSource,
 }
 
-function downloadPng(source, filename = DEFAULT_FILENAME, {debug, fixSource} = DEFAULT_OPTIONS) {
+function downloadPng(
+  source,
+  filename = DEFAULT_FILENAME,
+  {debug = DEFAULT_OPTIONS.debug, fixSource = DEFAULT_OPTIONS.fixSource} = DEFAULT_OPTIONS,
+) {
   const canvas = document.createElement('canvas')
   const dpr = window.devicePixelRatio || 1
   document.body.appendChild(canvas)
   canvas.setAttribute('id', 'svg-image')
   canvas.setAttribute('width', source.width * dpr)
   canvas.setAttribute('height', source.height * dpr)
-  if (!debug) {
+  if (debug === false) {
     canvas.style.display = 'none'
   }
 
@@ -34,13 +38,16 @@ function downloadPng(source, filename = DEFAULT_FILENAME, {debug, fixSource} = D
     context.drawImage(image, 0, 0, source.width * dpr, source.height * dpr)
     const canvasdata = canvas.toDataURL('image/png')
 
-    if (!debug) {
+    if (debug === false) {
       commenceDownload(`${filename}.png`, canvasdata, () => document.body.removeChild(canvas))
     }
   }
 
   image.onload = onLoad
   image.src = imgsrc
+  if (debug === true) {
+    document.body.appendChild(image)
+  }
 }
 
 export default downloadPng
