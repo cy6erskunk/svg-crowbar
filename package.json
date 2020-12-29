@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "BABEL_ENV=commonjs jest",
+    "test": "BABEL_ENV=commonjs jest --forceExit",
     "test-ci": "BABEL_ENV=commonjs jest --runInBand --forceExit",
     "lint": "eslint ./src ./test",
     "lint-fix": "eslint --fix ./src",
