@@ -35,7 +35,7 @@ function downloadPng(
 
   function onLoad() {
     context.scale(dpr, dpr)
-    context.drawImage(image, 0, 0, source.width * dpr, source.height * dpr)
+    context.drawImage(image, 0, 0)
     const canvasdata = canvas.toDataURL('image/png')
 
     if (debug === false) {
