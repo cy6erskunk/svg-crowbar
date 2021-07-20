@@ -41,8 +41,8 @@ function getSource(svg, {css = 'inline'} = {}) {
   const result = {
     top: rect.top,
     left: rect.left,
-    width: rect.width,
-    height: rect.height,
+    width: svg.width.baseVal.value,
+    height: svg.height.baseVal.value,
     class: svg.getAttribute('class'),
     id: svg.getAttribute('id'),
     name: svg.getAttribute('name'),
