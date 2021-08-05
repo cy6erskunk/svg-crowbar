@@ -1,5 +1,5 @@
-import {commenceDownload} from './util'
 import {DEFAULT_FILENAME} from './const'
+import {commenceDownload} from './util'
 
 export function _fixSource(source) {
   return btoa(
@@ -12,19 +12,24 @@ export function _fixSource(source) {
 const DEFAULT_OPTIONS = {
   debug: false,
   fixSource: _fixSource,
+  scale: 1,
 }
 
 function downloadPng(
   source,
   filename = DEFAULT_FILENAME,
-  {debug = DEFAULT_OPTIONS.debug, fixSource = DEFAULT_OPTIONS.fixSource} = DEFAULT_OPTIONS,
+  {
+    debug = DEFAULT_OPTIONS.debug,
+    fixSource = DEFAULT_OPTIONS.fixSource,
+    scale = DEFAULT_OPTIONS.scale,
+  } = DEFAULT_OPTIONS,
 ) {
   const canvas = document.createElement('canvas')
   const dpr = window.devicePixelRatio || 1
   document.body.appendChild(canvas)
   canvas.setAttribute('id', 'svg-image')
-  canvas.setAttribute('width', source.width * dpr)
-  canvas.setAttribute('height', source.height * dpr)
+  canvas.setAttribute('width', source.width * dpr * scale)
+  canvas.setAttribute('height', source.height * dpr * scale)
   if (debug === false) {
     canvas.style.display = 'none'
   }
@@ -34,7 +39,7 @@ function downloadPng(
   const image = new Image()
 
   function onLoad() {
-    context.scale(dpr, dpr)
+    context.scale(dpr * scale, dpr * scale)
     context.drawImage(image, 0, 0)
     const canvasdata = canvas.toDataURL('image/png')
 
