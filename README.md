@@ -43,7 +43,7 @@ downloadPNG(svgElement, [filename], [options])
 
 - **options** *(optional)*
 
-  An object literal. It presently has just a single configurable property:
+  An object literal. It presently has two configurable properties:
 
 - **options.css** *(optional)*
 
@@ -74,6 +74,23 @@ downloadPNG(svgElement, [filename], [options])
 
   // Do not add CSS:
   downloadSvg(svg, 'my_svg', { css: 'none' });
+  ```
+
+- **options.downloadPNGOptions.scale** *(optional)*
+
+  This setting determines at which scale the final PNG image is created, for example when resolution is desired. The default scale is 1 (ie no scaling).
+
+  Example:
+  ```javascript
+  const svg = document.querySelector('svg');
+
+  // Download a normal-scaled PNG
+  downloadPng(svg, 'my_svg');
+  downloadPng(svg, 'my_svg', {downloadPNGOptions:{ scale: 1 }});
+
+  // Download a double-scaled PNG
+  downloadPng(svg, 'my_svg', {downloadPNGOptions:{ scale: 2 }});
+
   ```
 
   ### UMD bundle
