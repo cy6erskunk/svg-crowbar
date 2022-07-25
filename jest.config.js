@@ -1,5 +1,4 @@
 module.exports = {
-  setupFiles: ['<rootDir>/test/_setup.js'],
-  runner: '@jest-runner/electron',
-  testEnvironment: '@jest-runner/electron/environment',
+  setupFiles: ['<rootDir>/test/_setup.js', 'jest-canvas-mock', 'jsdom-worker'],
+  testEnvironment: 'jsdom',
 }
