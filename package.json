@@ -34,8 +34,8 @@
   "homepage": "https://svg-crowbar.js.org/",
   "devDependencies": {
     "@babel/cli": "7.18.10",
-    "@babel/core": "7.19.0",
-    "@babel/preset-env": "7.19.0",
+    "@babel/core": "7.19.1",
+    "@babel/preset-env": "7.19.1",
     "@cyberskunk/eslint-config": "1.0.0",
     "babel-eslint": "10.1.0",
     "babel-jest": "28.1.3",
