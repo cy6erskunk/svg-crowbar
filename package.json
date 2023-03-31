@@ -37,7 +37,7 @@
     "@babel/core": "7.21.4",
     "@babel/preset-env": "7.21.4",
     "@cyberskunk/eslint-config": "1.0.0",
-    "babel-eslint": "10.1.0",
+    "@babel/eslint-parser": "7.11.0",
     "babel-jest": "28.1.3",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.8.0",
