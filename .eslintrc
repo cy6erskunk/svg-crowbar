@@ -35,7 +35,7 @@
     },
     "overrides": [
       {
-        "files": "src/__mocks__/*.js",
+        "files": ["src/__mocks__/*.js", "test/_setup.js"],
         "env": {
           "jest": true
         }
