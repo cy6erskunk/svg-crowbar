@@ -39,7 +39,7 @@
     "@babel/preset-env": "7.22.9",
     "@cyberskunk/eslint-config": "1.0.0",
     "babel-jest": "29.6.1",
-    "eslint": "8.44.0",
+    "eslint": "8.45.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-prettier": "4.2.1",
