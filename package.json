@@ -47,7 +47,7 @@
     "jest-canvas-mock": "2.5.2",
     "jest-environment-jsdom": "29.6.1",
     "prettier": "2.8.8",
-    "webpack": "5.88.1",
+    "webpack": "5.88.2",
     "webpack-cli": "5.1.4"
   }
 }
