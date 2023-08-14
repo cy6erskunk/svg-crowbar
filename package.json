@@ -10,8 +10,8 @@
   "scripts": {
     "test": "BABEL_ENV=commonjs jest --forceExit",
     "test-ci": "BABEL_ENV=commonjs jest --runInBand --forceExit",
-    "lint": "eslint ./src ./test",
-    "lint-fix": "eslint --fix ./src",
+    "lint": "npx rome format . && npx rome check .",
+    "lint-fix": "npx rome format --write . && npx rome check --apply .",
     "clean": "rm -fr dist manual-tests/main.js",
     "build": "npm run clean && npm run build-umd && npm run build-cjs && npm run build-esm",
     "build-umd": "webpack --entry ./src/index.js --mode=production",
@@ -35,18 +35,12 @@
   "devDependencies": {
     "@babel/cli": "7.22.10",
     "@babel/core": "7.22.10",
-    "@babel/eslint-parser": "7.22.10",
     "@babel/preset-env": "7.22.10",
-    "@cyberskunk/eslint-config": "1.0.0",
     "babel-jest": "29.6.2",
-    "eslint": "8.46.0",
-    "eslint-config-prettier": "8.10.0",
-    "eslint-plugin-import": "2.28.0",
-    "eslint-plugin-prettier": "4.2.1",
     "jest": "29.6.2",
     "jest-canvas-mock": "2.5.2",
     "jest-environment-jsdom": "29.6.2",
-    "prettier": "2.8.8",
+    "rome": "12.1.3",
     "webpack": "5.88.2",
     "webpack-cli": "5.1.4"
   }
