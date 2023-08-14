@@ -73,7 +73,7 @@ function setInlineStyles(svg, emptySvgDeclarationComputed) {
     tree.push(obj)
     visit(obj)
     function visit(node) {
-      if (node && node.hasChildNodes()) {
+      if (node?.hasChildNodes()) {
         let child = node.firstChild
         while (child) {
           if (child.nodeType === 1 && child.nodeName !== 'SCRIPT') {

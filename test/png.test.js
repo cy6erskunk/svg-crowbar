@@ -18,7 +18,7 @@ test('download uses provided safeSource fn', () => {
 })
 
 test('download succeeds with non-ascii chars ☸☹☺☻☼☾☿✓', () => {
-  const source = `<svg><text>boom! ☸☹☺☻☼☾☿✓</text></svg>`
+  const source = '<svg><text>boom! ☸☹☺☻☼☾☿✓</text></svg>'
   expect(() => _fixSource(source)).not.toThrow()
 })
 
