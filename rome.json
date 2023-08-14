@@ -1,18 +1,18 @@
 {
-	"$schema": "https://docs.rome.tools/schemas/12.1.3/schema.json",
-	"files": {
-		"ignore": [ "dist/", "manual-tests/"]
-	},
-	"organizeImports": {
-		"enabled": false
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true
-		}
-	},
-	"formatter": {
+  "$schema": "https://docs.rome.tools/schemas/12.1.3/schema.json",
+  "files": {
+    "ignore": ["dist/", "manual-tests/"]
+  },
+  "organizeImports": {
+    "enabled": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    }
+  },
+  "formatter": {
     "enabled": true,
     "formatWithErrors": false,
     "indentStyle": "space",
@@ -20,11 +20,11 @@
     "lineWidth": 80,
     "ignore": []
   },
-	"javascript": {
-		"formatter": {
-			"quoteStyle": "single",
-			"trailingComma": "none",
-			"semicolons": "asNeeded"
-		}
-	}		
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "trailingComma": "none",
+      "semicolons": "asNeeded"
+    }
+  }
 }

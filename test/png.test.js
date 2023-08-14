@@ -1,4 +1,4 @@
-import download, {_fixSource} from '../src/png'
+import download, { _fixSource } from '../src/png'
 import inputProcessor from '../src/inputProcessor'
 
 jest.mock('../src/util')
@@ -13,7 +13,7 @@ test('download succeeds with empty SVG', () => {
 
 test('download uses provided safeSource fn', () => {
   const safeFnMock = jest.fn()
-  download(inputProcessor(createSVG()), undefined, {fixSource: safeFnMock})
+  download(inputProcessor(createSVG()), undefined, { fixSource: safeFnMock })
   expect(safeFnMock).toHaveBeenCalled()
 })
 

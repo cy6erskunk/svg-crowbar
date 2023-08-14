@@ -1,5 +1,5 @@
-import {prefix, DEFAULT_FILENAME} from '../src/const'
-import {getFilename} from '../src/util'
+import { prefix, DEFAULT_FILENAME } from '../src/const'
+import { getFilename } from '../src/util'
 
 const createSVG = () => document.createElementNS(prefix.svg, 'svg')
 describe('getFilename', () => {

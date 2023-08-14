@@ -1,4 +1,4 @@
-import {doctype, prefix} from './const'
+import { doctype, prefix } from './const'
 
 function getEmptySvgDeclarationComputed() {
   let emptySvg = document.createElementNS(prefix.svg, 'svg')
@@ -10,7 +10,7 @@ function getEmptySvgDeclarationComputed() {
   return emptySvgDeclarationComputed
 }
 
-function getSource(svg, {css = 'inline'} = {}) {
+function getSource(svg, { css = 'inline' } = {}) {
   if (!(svg instanceof SVGElement)) {
     throw new Error('SVG element is required')
   }
@@ -47,7 +47,7 @@ function getSource(svg, {css = 'inline'} = {}) {
     id: svg.getAttribute('id'),
     name: svg.getAttribute('name'),
     childElementCount: svg.childElementCount,
-    source: doctype + source,
+    source: doctype + source
   }
 
   return result
@@ -100,12 +100,12 @@ function setInternalStyles(svg) {
     .filter(
       (styleSheet) =>
         // Prevent CORS errors
-        !styleSheet.href || styleSheet.href.startsWith(document.location.origin),
+        !styleSheet.href || styleSheet.href.startsWith(document.location.origin)
     )
     .map((styleSheet) =>
       Array.from(styleSheet.cssRules)
         .map((rule) => rule.cssText)
-        .join(' '),
+        .join(' ')
     )
     .join(' ')
   svg.prepend(style)

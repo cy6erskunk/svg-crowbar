@@ -1,7 +1,7 @@
 import download from '../src/svg'
 import inputProcessor from '../src/inputProcessor'
-import {commenceDownload} from '../src/util'
-import {DEFAULT_FILENAME} from '../src/const'
+import { commenceDownload } from '../src/util'
+import { DEFAULT_FILENAME } from '../src/const'
 
 jest.mock('../src/util')
 
