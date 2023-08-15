@@ -1,4 +1,4 @@
-import {REMOVE_TIMEOUT, DEFAULT_FILENAME} from './const'
+import { REMOVE_TIMEOUT, DEFAULT_FILENAME } from './const'
 
 export function getFilename(source) {
   if (!(source instanceof SVGElement)) {

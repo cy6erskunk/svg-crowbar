@@ -3,7 +3,7 @@ export const doctype =
 export const prefix = {
   xmlns: 'http://www.w3.org/2000/xmlns/',
   xlink: 'http://www.w3.org/1999/xlink',
-  svg: 'http://www.w3.org/2000/svg',
+  svg: 'http://www.w3.org/2000/svg'
 }
 export const REMOVE_TIMEOUT = 10
 export const DEFAULT_FILENAME = 'untitled'

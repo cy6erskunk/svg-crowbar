@@ -1,5 +1,5 @@
 import inputProcessor from '../src/inputProcessor'
-import {prefix, doctype} from '../src/const'
+import { prefix, doctype } from '../src/const'
 
 const createSVG = () => document.createElementNS(prefix.svg, 'svg')
 

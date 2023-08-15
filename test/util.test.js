@@ -1,9 +1,9 @@
-import {prefix, DEFAULT_FILENAME} from '../src/const'
-import {getFilename} from '../src/util'
+import { prefix, DEFAULT_FILENAME } from '../src/const'
+import { getFilename } from '../src/util'
 
 const createSVG = () => document.createElementNS(prefix.svg, 'svg')
 describe('getFilename', () => {
-  beforeEach(() => (document.title = ''))
+  beforeEach(() => document.title === '')
   test('throws when receves not  an SVG', () => {
     expect(getFilename).toThrow()
   })

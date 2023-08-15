@@ -1,18 +1,20 @@
-import {DEFAULT_FILENAME} from './const'
-import {commenceDownload} from './util'
+import { DEFAULT_FILENAME } from './const'
+import { commenceDownload } from './util'
 
 export function _fixSource(source) {
   return btoa(
     unescape(
-      encodeURIComponent(source.replace(/[\u00A0-\u2666]/g, (c) => `&#${c.charCodeAt(0)};`)),
-    ),
+      encodeURIComponent(
+        source.replace(/[\u00A0-\u2666]/g, (c) => `&#${c.charCodeAt(0)};`)
+      )
+    )
   )
 }
 
 const DEFAULT_OPTIONS = {
   debug: false,
   fixSource: _fixSource,
-  scale: 1,
+  scale: 1
 }
 
 function downloadPng(
@@ -21,8 +23,8 @@ function downloadPng(
   {
     debug = DEFAULT_OPTIONS.debug,
     fixSource = DEFAULT_OPTIONS.fixSource,
-    scale = DEFAULT_OPTIONS.scale,
-  } = DEFAULT_OPTIONS,
+    scale = DEFAULT_OPTIONS.scale
+  } = DEFAULT_OPTIONS
 ) {
   const canvas = document.createElement('canvas')
   const dpr = window.devicePixelRatio || 1
@@ -44,7 +46,9 @@ function downloadPng(
     const canvasdata = canvas.toDataURL('image/png')
 
     if (debug === false) {
-      commenceDownload(`${filename}.png`, canvasdata, () => document.body.removeChild(canvas))
+      commenceDownload(`${filename}.png`, canvasdata, () =>
+        document.body.removeChild(canvas)
+      )
     }
   }
 
