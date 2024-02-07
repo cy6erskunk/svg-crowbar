@@ -10,8 +10,8 @@
   "scripts": {
     "test": "BABEL_ENV=commonjs jest --forceExit",
     "test-ci": "BABEL_ENV=commonjs jest --runInBand --forceExit",
-    "lint": "npx rome format . && npx rome check .",
-    "lint-fix": "npx rome format --write . && npx rome check --apply .",
+    "lint": "npx biome format . && npx biome check .",
+    "lint-fix": "npx biome format --write . && npx biome check --apply .",
     "clean": "rm -fr dist manual-tests/main.js",
     "build": "npm run clean && npm run build-umd && npm run build-cjs && npm run build-esm",
     "build-umd": "webpack --entry ./src/index.js --mode=production",
