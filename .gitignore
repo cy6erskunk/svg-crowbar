@@ -3,3 +3,7 @@ node_modules
 dist
 .DS_Store
 manual-tests/main.js
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
