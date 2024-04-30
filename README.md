@@ -101,3 +101,7 @@ simply add
 <script src="node_modules/svg-crowbar/dist/main.js"></script>
 ```
 to get `downloadSvg` and `downloadPng` global function.
+
+## Playwright tests
+
+Currently Chrome with `deviceScaleFactor: 2` is run agains `manual-tests`, comparing screenshots.
