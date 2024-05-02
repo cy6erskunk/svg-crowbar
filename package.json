@@ -8,8 +8,8 @@
     "dist"
   ],
   "scripts": {
-    "test": "BABEL_ENV=commonjs jest --forceExit",
-    "test-ci": "BABEL_ENV=commonjs jest --runInBand --forceExit",
+    "test": "BABEL_ENV=commonjs jest --forceExit ./test",
+    "test-ci": "BABEL_ENV=commonjs jest --runInBand --forceExit ./test",
     "lint": "npx biome format . && npx biome check .",
     "lint-fix": "npx biome format --write . && npx biome check --apply .",
     "clean": "rm -fr dist manual-tests/main.js",
