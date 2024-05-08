@@ -1,6 +1,6 @@
 # SVG Crowbar Library
 [![NPM version](https://img.shields.io/npm/v/svg-crowbar.svg)](https://www.npmjs.com/package/svg-crowbar)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![code style: Biome](https://img.shields.io/npm/v/npm.svg?logo=biome)](https://biomejs.dev/)
 [![Build status](https://github.com/cy6erskunk/svg-crowbar/actions/workflows/node.js.yml/badge.svg)](https://github.com/cy6erskunk/svg-crowbar/actions/workflows/node.js.yml)
 ![Copy README to gh-pages branch](https://github.com/cy6erskunk/svg-crowbar/workflows/Copy%20README%20to%20gh-pages%20branch/badge.svg)
 
