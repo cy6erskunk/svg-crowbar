@@ -37,12 +37,14 @@ module.exports = defineConfig({
     //   name: 'chromium',
     //   use: { ...devices['Desktop Chrome'] },
     // },
-    /*
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: { ...devices['Desktop Firefox'], deviceScaleFactor: 1 }
     },
-*/
+    {
+      name: 'firefox @2x',
+      use: { ...devices['Desktop Firefox'], deviceScaleFactor: 2 }
+    },
 
     // {
     //   name: 'webkit',
@@ -66,6 +68,14 @@ module.exports = defineConfig({
     // },
     {
       name: 'Google Chrome',
+      use: {
+        ...devices['Desktop Chrome'],
+        channel: 'chrome',
+        deviceScaleFactor: 1
+      }
+    },
+    {
+      name: 'Google Chrome @2x',
       use: {
         ...devices['Desktop Chrome'],
         channel: 'chrome',
