@@ -32,7 +32,7 @@ module.exports = defineConfig({
   },
 
   expect: {
-    toHaveScreenshot: { maxDiffPixels: 10 },
+    toHaveScreenshot: { maxDiffPixels: 10 }
   },
 
   /* Configure projects for major browsers */
