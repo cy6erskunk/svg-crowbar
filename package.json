@@ -8,8 +8,8 @@
     "dist"
   ],
   "scripts": {
-    "test": "BABEL_ENV=commonjs jest --forceExit",
-    "test-ci": "BABEL_ENV=commonjs jest --runInBand --forceExit",
+    "test": "BABEL_ENV=commonjs jest --forceExit ./test",
+    "test-ci": "BABEL_ENV=commonjs jest --runInBand --forceExit ./test",
     "lint": "npx biome format . && npx biome check .",
     "lint-fix": "npx biome format --write . && npx biome check --apply .",
     "clean": "rm -fr dist manual-tests/main.js",
@@ -36,11 +36,15 @@
     "@babel/cli": "7.24.5",
     "@babel/core": "7.24.5",
     "@babel/preset-env": "7.24.5",
+    "@biomejs/biome": "1.5.3",
+    "@playwright/test": "1.42.0",
+    "@types/node": "20.11.24",
     "babel-jest": "29.7.0",
     "jest": "29.7.0",
     "jest-canvas-mock": "2.5.2",
     "jest-environment-jsdom": "29.7.0",
-    "@biomejs/biome": "1.5.3",
+    "pixelmatch": "5.3.0",
+    "serve": "14.2.3",
     "webpack": "5.91.0",
     "webpack-cli": "5.1.4"
   }
