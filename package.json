@@ -44,7 +44,7 @@
     "jest-canvas-mock": "2.5.2",
     "jest-environment-jsdom": "29.7.0",
     "serve": "14.2.3",
-    "webpack": "5.92.1",
+    "webpack": "5.93.0",
     "webpack-cli": "5.1.4"
   }
 }
