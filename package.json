@@ -33,7 +33,7 @@
     "@babel/preset-env": "7.26.0",
     "@biomejs/biome": "1.9.4",
     "@playwright/test": "1.49.1",
-    "@types/node": "22.10.2",
+    "@types/node": "22.10.3",
     "babel-jest": "29.7.0",
     "jest": "29.7.0",
     "jest-canvas-mock": "2.5.2",
