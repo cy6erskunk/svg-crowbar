@@ -32,7 +32,7 @@
     "@babel/core": "7.28.4",
     "@babel/preset-env": "7.28.3",
     "@biomejs/biome": "1.9.4",
-    "@playwright/test": "1.55.1",
+    "@playwright/test": "1.56.0",
     "@types/node": "22.15.18",
     "babel-jest": "30.2.0",
     "jest": "30.2.0",
