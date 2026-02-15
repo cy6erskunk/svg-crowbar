@@ -31,7 +31,7 @@
     "@babel/cli": "7.28.6",
     "@babel/core": "7.29.0",
     "@babel/preset-env": "7.29.0",
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.4.0",
     "@playwright/test": "1.58.2",
     "@types/node": "22.15.18",
     "babel-jest": "30.2.0",
