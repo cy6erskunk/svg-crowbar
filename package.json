@@ -35,7 +35,7 @@
     "@playwright/test": "1.59.1",
     "@types/node": "22.15.18",
     "babel-jest": "30.4.1",
-    "jest": "30.4.1",
+    "jest": "30.4.2",
     "jest-canvas-mock": "2.5.2",
     "jest-environment-jsdom": "30.4.1",
     "serve": "14.2.6",
