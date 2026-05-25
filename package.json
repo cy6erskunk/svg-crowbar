@@ -28,9 +28,9 @@
   },
   "homepage": "https://svg-crowbar.js.org/",
   "devDependencies": {
-    "@babel/cli": "7.28.6",
-    "@babel/core": "7.29.0",
-    "@babel/preset-env": "7.29.5",
+    "@babel/cli": "7.29.7",
+    "@babel/core": "7.29.7",
+    "@babel/preset-env": "7.29.7",
     "@biomejs/biome": "1.9.4",
     "@playwright/test": "1.60.0",
     "@types/node": "22.15.18",
