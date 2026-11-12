@@ -1,7 +1,7 @@
 name: Copy README to gh-pages branch
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths: ["README.md"]
 
 jobs:
@@ -15,9 +15,9 @@ jobs:
 
       - name: copy README to gh-pages branch
         run: |
-          git fetch --depth=1 origin master
-          git checkout origin/master README.md
+          git fetch --depth=1 origin main
+          git checkout origin/main README.md
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit README.md -m 'Copy readme file from master branch'
+          git commit README.md -m 'Copy readme file from main branch'
           git push origin gh-pages
