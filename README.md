@@ -104,4 +104,10 @@ to get `downloadSvg` and `downloadPng` global function.
 
 ## Playwright tests
 
-Currently Chrome with `deviceScaleFactor: 2` is run agains `manual-tests`, comparing screenshots.
+Run with `deviceScaleFactor: 2` is run agains `manual-tests`, comparing screenshots.
+
+To run locally:
+```shell
+npm run test-e2e
+```
+

@@ -8,6 +8,7 @@
   "scripts": {
     "test": "BABEL_ENV=commonjs jest --forceExit ./test",
     "test-ci": "BABEL_ENV=commonjs jest --runInBand --forceExit ./test",
+    "test-e2e": "npm run prepare-mtests && playwright test",
     "lint": "npx biome format . && npx biome check .",
     "lint-fix": "npx biome format --write . && npx biome check --write .",
     "clean": "rm -fr dist manual-tests/main.js",
