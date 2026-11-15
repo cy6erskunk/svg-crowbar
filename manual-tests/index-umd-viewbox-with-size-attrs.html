@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+  <meta charset='utf-8'>
+  <title>Smanual tests</title>
+  <link rel="stylesheet" type="text/css" href="assets/linked.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+  </style>
+  <style>
+    @import url("assets/imported.css");
+
+    /* Reproduces the exact conditions from the issue's CodeSandbox:
+       the SVG has width/height attributes AND a viewBox, but CSS forces it to
+       100% of a smaller parent. The PNG export currently crops to the DOM box
+       (250x150) instead of the intrinsic 500x300.
+       https://github.com/cy6erskunk/svg-crowbar/issues/75 */
+    #wrapper {
+      width: 250px;
+      height: 150px;
+    }
+
+    .sample-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    svg {
+      border: solid 1px #dedede;
+    }
+
+    .internal {
+      fill: indigo;
+    }
+
+    #wrapper .selector {
+      fill: seagreen;
+    }
+
+    svg text {
+      text-anchor: middle;
+      font-size: 16px;
+      font-family: Helvetica;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h3>width="500" height="300" viewBox="0 0 500 300", CSS 100% of a 250&times;150 parent</h3>
+  <div id="wrapper">
+    <svg width="500" height="300" viewBox="0 0 500 300" class="sample-svg">
+      <text class="internal" x="250" y="60">Internal CSS, this text should be indigo ☸☹☺☻☼☾☿✓</text>
+      <text class="imported" x="250" y="120">Imported CSS, this text should be indianred.</text>
+      <text class="linked" x="250" y="180">Linked CSS, this text should be lightsalmon.</text>
+      <text class="selector" x="250" y="240">An HTML dependency, this text should be seagreen.</text>
+    </svg>
+  </div>
+  <div class="buttons">
+    <button class="sample-svg-svg">SVG</button>
+    <button class="sample-svg-png">PNG</button>
+  </div>
+  <script src="main.js"></script>
+  <script>
+    document.querySelector('.sample-svg-svg').addEventListener('click', () => downloadSvg(document.querySelector('.sample-svg'), 'sample-svg-size-attrs'))
+    document.querySelector('.sample-svg-png').addEventListener('click', () => downloadPng(document.querySelector('.sample-svg'), 'sample-png-size-attrs'))
+  </script>
+</body>
