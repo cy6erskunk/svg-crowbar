@@ -10,6 +10,37 @@ function getEmptySvgDeclarationComputed() {
   return emptySvgDeclarationComputed
 }
 
+// Determine dimensions of the image when rendered, try getting in the following order:
+// 1. absolute width/height attributes
+// 2. viewBox
+// 3. rendered DOM box
+// `getBoundingClientRect` crops or pads when the DOM box differs from intrinsic size.
+// https://github.com/cy6erskunk/svg-crowbar/issues/75
+function getIntrinsicDimensions(svg) {
+  const rect = svg.getBoundingClientRect()
+  const PERCENTAGE = 2 // SVGLength.SVG_LENGTHTYPE_PERCENTAGE
+
+  const widthAttr = svg.width?.baseVal
+  const heightAttr = svg.height?.baseVal
+  if (
+    svg.hasAttribute('width') &&
+    svg.hasAttribute('height') &&
+    widthAttr?.unitType !== PERCENTAGE &&
+    heightAttr?.unitType !== PERCENTAGE &&
+    widthAttr?.value &&
+    heightAttr?.value
+  ) {
+    return { width: widthAttr.value, height: heightAttr.value }
+  }
+
+  const viewBox = svg.viewBox?.baseVal
+  if (viewBox?.width && viewBox?.height) {
+    return { width: viewBox.width, height: viewBox.height }
+  }
+
+  return { width: rect.width, height: rect.height }
+}
+
 function getSource(svg, { css = 'inline' } = {}) {
   if (!(svg instanceof SVGElement)) {
     throw new Error('SVG element is required')
@@ -37,12 +68,13 @@ function getSource(svg, { css = 'inline' } = {}) {
 
   const source = new XMLSerializer().serializeToString(svg)
   const rect = svg.getBoundingClientRect()
+  const { width, height } = getIntrinsicDimensions(svg)
 
   const result = {
     top: rect.top,
     left: rect.left,
-    width: rect.width,
-    height: rect.height,
+    width,
+    height,
     class: svg.getAttribute('class'),
     id: svg.getAttribute('id'),
     name: svg.getAttribute('name'),
