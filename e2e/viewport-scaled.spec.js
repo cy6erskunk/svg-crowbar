@@ -63,6 +63,25 @@ test('png generation: viewbox scaled up keeps intrinsic size (issue #75)', async
   })
 })
 
+// Only one absolute dimension (width) is set alongside the viewBox.
+test('png generation: single width attr + viewbox derives height from ratio (issue #75)', async ({
+  page
+}) => {
+  await page.goto(
+    'http://localhost:3000/index-umd-viewbox-single-dimension.html'
+  )
+  const { width, height, dpr } = await exportedPngSize(
+    page,
+    'index-umd-viewbox-single-dimension.html',
+    'sample-png-single-dimension.png'
+  )
+  // width="600" with viewBox "0 0 500 300" => 600 x (600 * 300/500) = 600 x 360.
+  expect({ width, height }).toEqual({
+    width: 600 * dpr,
+    height: 360 * dpr
+  })
+})
+
 // The issue's CodeSandbox repro: width/height attributes + viewBox, forced to
 // 100% of a smaller parent. Exercises the width/height-attribute branch of a
 // fix rather than the viewBox branch above.
