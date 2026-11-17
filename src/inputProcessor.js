@@ -10,6 +10,46 @@ function getEmptySvgDeclarationComputed() {
   return emptySvgDeclarationComputed
 }
 
+// Determine dimensions of the image when rendered, try getting in the following order:
+// 1. absolute width/height attributes
+// 2. a single absolute attribute paired with the viewBox aspect ratio
+// 3. viewBox
+// 4. rendered DOM box
+// `getBoundingClientRect` crops or pads when the DOM box differs from intrinsic size.
+// https://github.com/cy6erskunk/svg-crowbar/issues/75
+function getIntrinsicDimensions(svg) {
+  const rect = svg.getBoundingClientRect()
+  const PERCENTAGE = 2 // SVGLength.SVG_LENGTHTYPE_PERCENTAGE
+
+  const hasAbsolute = (name, length) =>
+    svg.hasAttribute(name) && length?.unitType !== PERCENTAGE && !!length?.value
+
+  const widthAttr = svg.width?.baseVal
+  const heightAttr = svg.height?.baseVal
+  const hasWidth = hasAbsolute('width', widthAttr)
+  const hasHeight = hasAbsolute('height', heightAttr)
+
+  if (hasWidth && hasHeight) {
+    return { width: widthAttr.value, height: heightAttr.value }
+  }
+
+  // When only one absolute size is set with a viewBox
+  const viewBox = svg.viewBox?.baseVal
+  const ratio =
+    viewBox?.width && viewBox?.height ? viewBox.width / viewBox.height : null
+  if (ratio) {
+    if (hasWidth) {
+      return { width: widthAttr.value, height: widthAttr.value / ratio }
+    }
+    if (hasHeight) {
+      return { width: heightAttr.value * ratio, height: heightAttr.value }
+    }
+    return { width: viewBox.width, height: viewBox.height }
+  }
+
+  return { width: rect.width, height: rect.height }
+}
+
 function getSource(svg, { css = 'inline' } = {}) {
   if (!(svg instanceof SVGElement)) {
     throw new Error('SVG element is required')
@@ -37,12 +77,13 @@ function getSource(svg, { css = 'inline' } = {}) {
 
   const source = new XMLSerializer().serializeToString(svg)
   const rect = svg.getBoundingClientRect()
+  const { width, height } = getIntrinsicDimensions(svg)
 
   const result = {
     top: rect.top,
     left: rect.left,
-    width: rect.width,
-    height: rect.height,
+    width,
+    height,
     class: svg.getAttribute('class'),
     id: svg.getAttribute('id'),
     name: svg.getAttribute('name'),
